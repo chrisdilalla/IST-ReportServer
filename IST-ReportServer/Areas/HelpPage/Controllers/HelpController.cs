@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using IST_ReportServer.Areas.HelpPage.ModelDescriptions;
-using IST_ReportServer.Areas.HelpPage.Models;
+using WebservicePortal.Areas.HelpPage.ModelDescriptions;
+using WebservicePortal.Areas.HelpPage.Models;
 
-namespace IST_ReportServer.Areas.HelpPage.Controllers
+namespace WebservicePortal.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

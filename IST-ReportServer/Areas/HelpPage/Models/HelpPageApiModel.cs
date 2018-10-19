@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using IST_ReportServer.Areas.HelpPage.ModelDescriptions;
+using WebservicePortal.Areas.HelpPage.ModelDescriptions;
 
-namespace IST_ReportServer.Areas.HelpPage.Models
+namespace WebservicePortal.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

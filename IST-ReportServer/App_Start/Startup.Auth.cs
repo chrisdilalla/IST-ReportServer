@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using DataAccess.Code;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using IST_ReportServer.Providers;
-using IST_ReportServer.Models;
+using WebservicePortal.Models;
+using WebservicePortal.Providers;
+using WebservicePortal.Utilities;
 
-namespace IST_ReportServer
+namespace WebservicePortal
 {
     public partial class Startup
     {
@@ -22,6 +20,8 @@ namespace IST_ReportServer
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            BaseDatabaseAccess.SetConnectionString(PortalConfig.ReadConnString());
+
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);

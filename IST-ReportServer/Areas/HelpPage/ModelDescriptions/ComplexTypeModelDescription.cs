@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace IST_ReportServer.Areas.HelpPage.ModelDescriptions
+namespace WebservicePortal.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

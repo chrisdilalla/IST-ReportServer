@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
+using WebservicePortal;
 
-[assembly: OwinStartup(typeof(IST_ReportServer.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
-namespace IST_ReportServer
+namespace WebservicePortal
 {
     public partial class Startup
     {

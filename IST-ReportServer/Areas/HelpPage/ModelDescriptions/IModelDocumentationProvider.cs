@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace IST_ReportServer.Areas.HelpPage.ModelDescriptions
+namespace WebservicePortal.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

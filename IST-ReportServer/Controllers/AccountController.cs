@@ -6,18 +6,17 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using IST_ReportServer.Models;
-using IST_ReportServer.Providers;
-using IST_ReportServer.Results;
+using WebservicePortal.Models;
+using WebservicePortal.Providers;
+using WebservicePortal.Results;
 
-namespace IST_ReportServer.Controllers
+namespace WebservicePortal.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
@@ -306,7 +305,7 @@ namespace IST_ReportServer.Controllers
                     {
                         provider = description.AuthenticationType,
                         response_type = "token",
-                        client_id = Startup.PublicClientId,
+                        client_id = WebservicePortal.Startup.PublicClientId,
                         redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri,
                         state = state
                     }),

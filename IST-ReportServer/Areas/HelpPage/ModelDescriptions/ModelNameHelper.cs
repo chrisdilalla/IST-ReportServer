@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace IST_ReportServer.Areas.HelpPage.ModelDescriptions
+namespace WebservicePortal.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

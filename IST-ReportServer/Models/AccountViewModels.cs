@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace IST_ReportServer.Models
+namespace WebservicePortal.Models
 {
     // Models returned by AccountController actions.
 

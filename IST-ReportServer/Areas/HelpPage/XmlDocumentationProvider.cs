@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using IST_ReportServer.Areas.HelpPage.ModelDescriptions;
+using WebservicePortal.Areas.HelpPage.ModelDescriptions;
 
-namespace IST_ReportServer.Areas.HelpPage
+namespace WebservicePortal.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

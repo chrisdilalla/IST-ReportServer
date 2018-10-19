@@ -11,10 +11,11 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using IST_ReportServer.Areas.HelpPage.ModelDescriptions;
-using IST_ReportServer.Areas.HelpPage.Models;
+using WebservicePortal.Areas.HelpPage.ModelDescriptions;
+using WebservicePortal.Areas.HelpPage.Models;
+using WebservicePortal.Areas.HelpPage.SampleGeneration;
 
-namespace IST_ReportServer.Areas.HelpPage
+namespace WebservicePortal.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace IST_ReportServer.Areas.HelpPage.ModelDescriptions
+namespace WebservicePortal.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {
