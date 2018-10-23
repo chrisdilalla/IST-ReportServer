@@ -296,6 +296,10 @@
       <Project>{2bb12ed6-f5a5-4fe5-a090-c5c4f23de925}</Project>
       <Name>Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PdfReports\PdfReports.csproj">
+      <Project>{80f54098-d988-420e-815d-865fc92ca629}</Project>
+      <Name>PdfReports</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

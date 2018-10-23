@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataAccess.Code.Dapper;
 using Library.Models;
 using Library.Models.ReportModels;
+using PdfReports;
+using PdfReports.Code.Reports;
 
 namespace WebservicePortal.DomainLogic
 {
@@ -60,6 +60,9 @@ namespace WebservicePortal.DomainLogic
             summary.ProcessCodeSummaries = _inductionDowntimeRepository.GetProcessCodeSummary(startdate, enddate, lineNumber, jobNumber, processCode);
 
             CalculateTimeSpans(summary);
+
+            IndDownProcCodeSummRpt rpt = new IndDownProcCodeSummRpt(summary);
+            summary.ReportBytes = rpt.BuildPdf();
 
             return summary;
 

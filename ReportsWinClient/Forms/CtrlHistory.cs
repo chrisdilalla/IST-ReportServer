@@ -31,7 +31,7 @@ namespace ReportsWinClient.Forms
         private void GetFurnaceLines()
         {
             comboLineNumber.Items.Clear();
-            List<int> furnaces =  DataAccessLayer.ReadFurnaceLines();
+            List<int> furnaces = DataAccessLayer.ReadFurnaceLines();
             foreach (int furnace in furnaces)
             {
                 comboLineNumber.Items.Add(furnace);
@@ -89,6 +89,8 @@ namespace ReportsWinClient.Forms
 
             InductionDowntimeProcessCodeSummary summary = DataAccessLayer.ReadDowntimeEvents(req);
             PopulateEventsGrid(summary.DowntimeEvents);
+
+            SaveAndOpenReports(summary);
 
 
             ////store events list locally
@@ -165,31 +167,18 @@ namespace ReportsWinClient.Forms
             }
         }
 
-        private void SaveAndOpenReports()//ReportsReadResponse resp)
+        private void SaveAndOpenReports(InductionDowntimeProcessCodeSummary summ)
         {
-            //CleanTemporaryDirectory();
-            //foreach (ReportResponse r in resp.ReportResponses)
-            //{
-            //    string directory = Properties.Settings.Default.TempDirectory;
-            //    if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
+            CleanTemporaryDirectory();
 
-            //    string path = Path.Combine(directory, string.Format("{0}.pdf", r.ReportName)); ;
+            string directory = Properties.Settings.Default.TempDirectory;
+            if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
 
-            //    for (int i = 0; i < 100; i++)
-            //    {
-            //        if (i > 0 && i < 99)
-            //        {
-            //            path = Path.Combine(directory, string.Format("{0}_{1}.pdf", r.ReportName, i.ToString(CultureInfo.InvariantCulture)));
-            //        }
-            //        if (!File.Exists(path)) break;
+            string path = Path.Combine(directory, string.Format("{0}.pdf", $"ReportName_{DateTime.Now.ToFileTime()}")); 
 
-            //        if (i == 99) path = Path.Combine(directory, string.Format("{0}_{1}.pdf", r.ReportName, DateTime.Now.ToFileTime()));
-            //    }
-
-            //    File.WriteAllBytes(path, r.ReportBytes);
-            //    Process.Start(path);
-            //    Cursor = Cursors.Default;
-            //}
+            File.WriteAllBytes(path, summ.ReportBytes);
+            Process.Start(path);
+            Cursor = Cursors.Default;
         }
 
         private void CleanTemporaryDirectory()

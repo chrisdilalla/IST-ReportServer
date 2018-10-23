@@ -48,10 +48,16 @@
     <Compile Include="Code\ReportsEngine\PdfReportConfig.cs" />
     <Compile Include="Code\ReportsEngine\PdfReportEventsHandler.cs" />
     <Compile Include="Code\ReportsEngine\PdfReportUtils.cs" />
+    <Compile Include="Code\Reports\IndDownProcCodeSummRpt.cs" />
+    <Compile Include="Code\Reports\ReportBase.cs" />
+    <Compile Include="Code\Reports\ReportShared.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Code\Reports\" />
+    <ProjectReference Include="..\Library\Library.csproj">
+      <Project>{2bb12ed6-f5a5-4fe5-a090-c5c4f23de925}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,7 @@
 ﻿using System;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Library.Models.ReportModels;
 using Image = System.Drawing.Image;
 
 namespace PdfReports.Code.ReportsEngine
@@ -38,10 +39,7 @@ namespace PdfReports.Code.ReportsEngine
 		public DateTime ReportCreationDateTime { get; set; }
 
 		public ESignatureUsed SignatureUsed { get; set; }
-
-		//public Order Order { get; set; }
-
-		//public FurnLoad Load { get; set; }
+	    public InductionDowntimeProcessCodeSummary PcSumm { get; set; }
 
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }

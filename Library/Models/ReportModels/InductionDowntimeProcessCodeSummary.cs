@@ -23,6 +23,7 @@ namespace Library.Models.ReportModels
         public List<int> JobNumbersProcessed { get; set; }
         public List<ProcessCodeSummary> ProcessCodeSummaries { get; set; }
         public List<InductionDownTime> DowntimeEvents { get; set; }
+        public byte[] ReportBytes { get; set; }
     }
 
     public class ProcessCodeSummary
