@@ -35,7 +35,6 @@ namespace ReportsWinClient.Forms
             this.lblDesc = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboLineNumber = new System.Windows.Forms.ComboBox();
-            this.btnUtilizationReport = new System.Windows.Forms.Button();
             this.txtProcessCode = new System.Windows.Forms.TextBox();
             this.txtJobNumber = new System.Windows.Forms.TextBox();
             this.btnRefineSearch = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@ namespace ReportsWinClient.Forms
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.datagridviewStopEvents = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
             this.SmallDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProcessCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoursDown = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,7 @@ namespace ReportsWinClient.Forms
             this.JobNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetReport = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewStopEvents)).BeginInit();
@@ -95,7 +94,6 @@ namespace ReportsWinClient.Forms
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.comboLineNumber);
-            this.panel1.Controls.Add(this.btnUtilizationReport);
             this.panel1.Controls.Add(this.txtProcessCode);
             this.panel1.Controls.Add(this.txtJobNumber);
             this.panel1.Controls.Add(this.btnRefineSearch);
@@ -121,16 +119,6 @@ namespace ReportsWinClient.Forms
             this.comboLineNumber.Name = "comboLineNumber";
             this.comboLineNumber.Size = new System.Drawing.Size(102, 21);
             this.comboLineNumber.TabIndex = 80;
-            // 
-            // btnUtilizationReport
-            // 
-            this.btnUtilizationReport.Location = new System.Drawing.Point(138, 399);
-            this.btnUtilizationReport.Name = "btnUtilizationReport";
-            this.btnUtilizationReport.Size = new System.Drawing.Size(100, 32);
-            this.btnUtilizationReport.TabIndex = 78;
-            this.btnUtilizationReport.Text = "Utilization Rpt";
-            this.btnUtilizationReport.UseVisualStyleBackColor = true;
-            this.btnUtilizationReport.Click += new System.EventHandler(this.btnUtilizationReport_Click);
             // 
             // txtProcessCode
             // 
@@ -254,17 +242,6 @@ namespace ReportsWinClient.Forms
             this.datagridviewStopEvents.TabIndex = 64;
             this.datagridviewStopEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridviewOrders_CellContentClick);
             // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.Control;
-            this.label11.Font = new System.Drawing.Font("Arial", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label11.Location = new System.Drawing.Point(12, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(634, 36);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Stop Events";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SmallDateTime
             // 
             this.SmallDateTime.HeaderText = "Event Date";
@@ -314,6 +291,17 @@ namespace ReportsWinClient.Forms
             this.GetReport.ReadOnly = true;
             this.GetReport.Text = "";
             // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.Control;
+            this.label11.Font = new System.Drawing.Font("Arial", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label11.Location = new System.Drawing.Point(12, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(634, 36);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Stop Events";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CtrlHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,7 +337,6 @@ namespace ReportsWinClient.Forms
 		private System.Windows.Forms.Button btnRefineSearch;
 		private System.Windows.Forms.TextBox txtJobNumber;
 		private System.Windows.Forms.TextBox txtProcessCode;
-        private System.Windows.Forms.Button btnUtilizationReport;
         private System.Windows.Forms.ComboBox comboLineNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn SmallDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProcessCode;

@@ -4,6 +4,7 @@ using System.Linq;
 using DataAccess.Code.Dapper;
 using Library.Models;
 using Library.Models.ReportModels;
+using MDLibrary.Utils;
 using PdfReports;
 using PdfReports.Code.Reports;
 
@@ -58,8 +59,8 @@ namespace WebservicePortal.DomainLogic
             }
 
             summary.ProcessCodeSummaries = _inductionDowntimeRepository.GetProcessCodeSummary(startdate, enddate, lineNumber, jobNumber, processCode);
-
-            CalculateTimeSpans(summary);
+            summary.CalculateOrderCounts();
+            summary.CalculateTimeSpans();
 
             IndDownProcCodeSummRpt rpt = new IndDownProcCodeSummRpt(summary);
             summary.ReportBytes = rpt.BuildPdf();
@@ -68,19 +69,9 @@ namespace WebservicePortal.DomainLogic
 
         }
 
-        public void CalculateTimeSpans(InductionDowntimeProcessCodeSummary summary)
-        {
-            foreach (ProcessCodeSummary s in summary.ProcessCodeSummaries)
-            {
-                s.TimeSpanDown = new TimeSpan(0, s.HoursDown, s.MinutesDown, 0, 0);
-                summary.TotalDownTimeSpan += s.TimeSpanDown;
-                if (summary.TotalTimeSpan.TotalMilliseconds > 0)  s.PercentOfTime = (decimal)(s.TimeSpanDown.TotalMilliseconds/ summary.TotalTimeSpan.TotalMilliseconds)*100;
-            }
 
-            if (summary.TotalTimeSpan.TotalMilliseconds > 0) summary.TotalPercentDowntime = (decimal)(summary.TotalDownTimeSpan.TotalMilliseconds/summary.TotalTimeSpan.TotalMilliseconds)*100
-            ;
 
-        }
+
     }
 
 

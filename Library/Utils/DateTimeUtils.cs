@@ -50,5 +50,14 @@ namespace MDLibrary.Utils
             return datetime;
         }
 
+        public static string ConvertTimeSpanToString(TimeSpan ts)
+        {
+            string s = "";
+            if (ts.Days > 0) s += $"{ts.Days}d ";
+            if (ts.Days > 0 || ts.Hours > 0) s += $"{ts.Hours.ToString("0")}h ";
+            s += $"{ts.Minutes.ToString("00")}m";
+            return s;
+        }
+
     }
 }

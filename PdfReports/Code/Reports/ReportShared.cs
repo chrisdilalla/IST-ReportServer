@@ -66,29 +66,29 @@ namespace PdfReports.Code.Reports
         public static PdfPTable CreateProcCodeStats(PdfReportConfig cfg, ProcessCodeSummary sum)
         {
             PdfPTable table = DefineStandardTable(cfg);
-            Phrase phrase;
-            PdfPCell cell;
+            //Phrase phrase;
+            //PdfPCell cell;
 
-            phrase = new Phrase { new Chunk($"Process Code {sum.ProcessCodeName}: ", cfg.TableHeaderFont) };
-            phrase.Add(new Chunk((sum.ProcessCode).ToString(CultureInfo.InvariantCulture), cfg.TableCellFont));
-            cell = new PdfPCell(phrase);
-            cell.Border = 0;
-            cell.Colspan = 2;
-            table.AddCell(cell);
+            //phrase = new Phrase { new Chunk($"Process Code {sum.ProcessCodeName}: ", cfg.TableHeaderFont) };
+            //phrase.Add(new Chunk((sum.ProcessCode).ToString(CultureInfo.InvariantCulture), cfg.TableCellFont));
+            //cell = new PdfPCell(phrase);
+            //cell.Border = 0;
+            //cell.Colspan = 2;
+            //table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("Time Down: ", cfg.TableHeaderFont) };
-            phrase.Add(new Chunk($"{sum.TimeSpanDown}", cfg.TableCellFont));
-            cell = new PdfPCell(phrase);
-            cell.Border = 0;
-            cell.Colspan = 2;
-            table.AddCell(cell);
+            //phrase = new Phrase { new Chunk("Time Down: ", cfg.TableHeaderFont) };
+            //phrase.Add(new Chunk($"{sum.TimeSpanDown}", cfg.TableCellFont));
+            //cell = new PdfPCell(phrase);
+            //cell.Border = 0;
+            //cell.Colspan = 2;
+            //table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("Percent Down: ", cfg.TableHeaderFont) };
-            phrase.Add(new Chunk($"{sum.PercentOfTime}", cfg.TableCellFont));
-            cell = new PdfPCell(phrase);
-            cell.Border = 0;
-            cell.Colspan = 2;
-            table.AddCell(cell);
+            //phrase = new Phrase { new Chunk("Percent Down: ", cfg.TableHeaderFont) };
+            //phrase.Add(new Chunk($"{sum.PercentOfTime}", cfg.TableCellFont));
+            //cell = new PdfPCell(phrase);
+            //cell.Border = 0;
+            //cell.Colspan = 2;
+            //table.AddCell(cell);
 
             return table;
         }

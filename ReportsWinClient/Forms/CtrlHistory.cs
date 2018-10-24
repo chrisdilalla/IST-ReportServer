@@ -207,42 +207,16 @@ namespace ReportsWinClient.Forms
             if (dtFrom.Value.Date > dtTo.Value.Date)
             {
                 btnRefineSearch.Enabled = false;
-                btnUtilizationReport.Enabled = false;
                 return;
             }
 
-            if (dtTo.Value.Date.Subtract(dtFrom.Value.Date).TotalDays > 31)
+            if (dtTo.Value.Date.Subtract(dtFrom.Value.Date).TotalDays > 365)
             {
                 btnRefineSearch.Enabled = false;
-                btnUtilizationReport.Enabled = true;
                 return;
             }
 
             btnRefineSearch.Enabled = true;
-            btnUtilizationReport.Enabled = true;
-        }
-
-        private void btnUtilizationReport_Click(object sender, EventArgs e)
-        {
-            //Cursor = Cursors.WaitCursor;
-
-            //ReportsReadRequest req = new ReportsReadRequest();
-
-            //ReportRequest req1 = new ReportRequest()
-            //{
-            //    ReportType = EReportType.UtilizationReport,
-            //    UtilizationReportRequest = new UtilizationReportRequest
-            //    {
-            //        FromDate = NormalizeDateForIstShifts(dtFrom.Value, true),
-            //        ToDate = NormalizeDateForIstShifts(dtTo.Value, false)
-            //    }
-            //};
-            //req.ReportRequests.Add(req1);
-
-            //ReportsReadResponse resp = DAL.ReadReports(req);
-
-            //SaveAndOpenReports(resp);
-            Cursor = Cursors.Default;
         }
 
         private DateTime NormalizeDateForIstShifts(DateTime date, bool isfromdate)
