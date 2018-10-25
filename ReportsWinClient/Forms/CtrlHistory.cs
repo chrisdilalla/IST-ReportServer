@@ -88,9 +88,9 @@ namespace ReportsWinClient.Forms
             };
 
             InductionDowntimeProcessCodeSummary summary = DataAccessLayer.ReadDowntimeEvents(req);
-            PopulateEventsGrid(summary.DowntimeEvents);
+            if (summary?.DowntimeEvents != null) PopulateEventsGrid(summary.DowntimeEvents);
 
-            SaveAndOpenReports(summary);
+            if (summary!= null && summary.ReportBytes!=null) SaveAndOpenReports(summary);
 
 
             ////store events list locally
@@ -174,7 +174,7 @@ namespace ReportsWinClient.Forms
             string directory = Properties.Settings.Default.TempDirectory;
             if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
 
-            string path = Path.Combine(directory, string.Format("{0}.pdf", $"ReportName_{DateTime.Now.ToFileTime()}")); 
+            string path = Path.Combine(directory, $"{$"ReportName_{DateTime.Now.ToFileTime()}"}.pdf"); 
 
             File.WriteAllBytes(path, summ.ReportBytes);
             Process.Start(path);

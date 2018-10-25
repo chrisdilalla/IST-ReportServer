@@ -18,7 +18,7 @@ namespace PdfReports.Code.Reports
         {
             Config.Portrait = true;
             Config.HeaderText = $"Induction Downtime Report Furnace #{Config.PcSumm.FurnaceLine}";
-            Config.SubheaderText = $"From {Config.PcSumm.FirstDate} to {Config.PcSumm.LastDate}";
+            Config.SubheaderText = $"From {Config.PcSumm.RequestStartDate} to {Config.PcSumm.RequestEndDate}";
             Config.ShowLogo = true;
             Config.TopSeparatorLine = true;
             Config.BottomSeparatorLine = true;
@@ -46,14 +46,14 @@ namespace PdfReports.Code.Reports
             table.SetWidths(colWidths);
 
 
-            Phrase phrase = new Phrase();// { new Chunk("SUMMARY", cfg.TableHeaderFont) };
+            Phrase phrase = new Phrase { new Chunk("SUMMARY", cfg.TableHeaderFont) };
             PdfPCell cell = new PdfPCell(phrase);
             cell.Border = 0;
             cell.Colspan = 8;
             cell.GrayFill = (float)0.95;
             table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("FIRST EVENT: ", cfg.TableHeaderFont) };
+            phrase = new Phrase { new Chunk("First Event: ", cfg.TableCellFont) };
             //phrase.Add(new Chunk(cfg.PcSumm.FirstDate.ToString(), cfg.TableCellFont));
             cell = new PdfPCell(phrase);
             cell.Border = 0;
@@ -63,10 +63,10 @@ namespace PdfReports.Code.Reports
             phrase = new Phrase { new Chunk(cfg.PcSumm.FirstDate.ToString(), cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
-            cell.Colspan = 6;
+            cell.Colspan = 2;
             table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("LAST EVENT: ", cfg.TableHeaderFont) };
+            phrase = new Phrase { new Chunk("Last Event: ", cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
             cell.Colspan = 2;
@@ -75,10 +75,10 @@ namespace PdfReports.Code.Reports
             phrase = new Phrase { new Chunk(cfg.PcSumm.LastDate.ToString(), cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
-            cell.Colspan = 6;
+            cell.Colspan = 2;
             table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("TOTAL TIME ANALYZED: ", cfg.TableHeaderFont) };
+            phrase = new Phrase { new Chunk("Total Time Analyzed: ", cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
             cell.Colspan = 2;
@@ -87,10 +87,10 @@ namespace PdfReports.Code.Reports
             phrase = new Phrase { new Chunk(cfg.PcSumm.TotalTimeSpanString, cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
-            cell.Colspan = 6;
+            cell.Colspan = 2;
             table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("TOTAL DOWNTIME LOGGED:", cfg.TableHeaderFont) };
+            phrase = new Phrase { new Chunk("Total Downtime Logged:", cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
             cell.Colspan = 2;
@@ -99,10 +99,10 @@ namespace PdfReports.Code.Reports
             phrase = new Phrase { new Chunk(cfg.PcSumm.TotalDownTimeSpanString, cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
-            cell.Colspan = 6;
+            cell.Colspan = 2;
             table.AddCell(cell);
 
-            phrase = new Phrase { new Chunk("DOWN TIME PERCENTAGE:", cfg.TableHeaderFont) };
+            phrase = new Phrase { new Chunk("Down Time Percent:", cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
             cell.Colspan = 2;
@@ -127,7 +127,7 @@ namespace PdfReports.Code.Reports
                 }
             }
 
-            phrase = new Phrase { new Chunk("JOB NUMBERS: ", cfg.TableHeaderFont) };
+            phrase = new Phrase { new Chunk("Job Numbers: ", cfg.TableCellFont) };
             cell = new PdfPCell(phrase);
             cell.Border = 0;
             cell.Colspan = 2;
@@ -149,11 +149,13 @@ namespace PdfReports.Code.Reports
                 table.DefaultCell.PaddingBottom = 5;
                 table.WidthPercentage = 100;
                 table.HeaderRows = 0;
+                table.SpacingAfter = 10;
 
-                phrase = new Phrase { new Chunk($"JOB NUMBER SUMMARY - {jc.JobNumber}", cfg.TableHeaderFont) };
+                phrase = new Phrase { new Chunk($"{jc.JobNumber} JOB SUMMARY", cfg.TableHeaderFont) };
                 cell = new PdfPCell(phrase);
                 cell.Border = 0;
                 cell.Colspan = 8;
+                cell.GrayFill = (float)0.95;
                 table.AddCell(cell);
 
                 phrase = new Phrase { new Chunk("First Event Date:", cfg.TableCellFont) };
@@ -162,10 +164,10 @@ namespace PdfReports.Code.Reports
                 cell.Colspan = 2;
                 table.AddCell(cell);
 
-                phrase = new Phrase { new Chunk($"{jc.FirstRecord.SmallDateTime}", cfg.TableCellFont) };
+                phrase = new Phrase { new Chunk($"{jc.FirstEventDate}", cfg.TableCellFont) };
                 cell = new PdfPCell(phrase);
                 cell.Border = 0;
-                cell.Colspan = 6;
+                cell.Colspan = 2;
                 table.AddCell(cell);
 
                 phrase = new Phrase { new Chunk("Last Event Date:", cfg.TableCellFont) };
@@ -174,10 +176,52 @@ namespace PdfReports.Code.Reports
                 cell.Colspan = 2;
                 table.AddCell(cell);
 
-                phrase = new Phrase { new Chunk($"{jc.LastRecord.SmallDateTime}", cfg.TableCellFont) };
+                phrase = new Phrase { new Chunk($"{jc.LastEventDate}", cfg.TableCellFont) };
                 cell = new PdfPCell(phrase);
                 cell.Border = 0;
-                cell.Colspan = 6;
+                cell.Colspan = 2;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk("Total Job Time:", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk($"{jc.TotalTimeSpanString}", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk("Total Down Time:", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk($"{jc.TotalDownTimeSpanString}", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk() };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 4;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk("Down Time Percent:", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
+
+                phrase = new Phrase { new Chunk($"{jc.TotalPercentDowntime.ToString("0.0")}%", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
                 table.AddCell(cell);
 
                 phrase = new Phrase { new Chunk("Total Part Count:", cfg.TableCellFont) };
@@ -186,19 +230,26 @@ namespace PdfReports.Code.Reports
                 cell.Colspan = 2;
                 table.AddCell(cell);
 
-                phrase = new Phrase { new Chunk($"{jc.TotalCount}", cfg.TableCellFont) };
+                phrase = new Phrase { new Chunk($"{jc.TotalPartCount}", cfg.TableCellFont) };
                 cell = new PdfPCell(phrase);
                 cell.Border = 0;
-                cell.Colspan = 6;
+                cell.Colspan = 2;
                 table.AddCell(cell);
 
-                table.AddCell(new PdfPCell());
+                phrase = new Phrase { new Chunk("Avg Parts/Min:", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
 
+                phrase = new Phrase { new Chunk($"{jc.AvgPartsPerMinute.ToString("####0")}", cfg.TableCellFont) };
+                cell = new PdfPCell(phrase);
+                cell.Border = 0;
+                cell.Colspan = 2;
+                table.AddCell(cell);
                 doc.Add(table);
             }
-            doc.Add(new Phrase("\n"));
-
-
+            //doc.Add(new Phrase("\n"));
             foreach (ProcessCodeSummary sum in cfg.PcSumm.ProcessCodeSummaries)
             {
                 //table = ReportShared.DefineStandardTable(cfg);
