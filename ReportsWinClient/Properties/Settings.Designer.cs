@@ -37,7 +37,7 @@ namespace ReportsWinClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:35342/api/v1/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.1.1.165/api/v1/")]
         public string PortalUrl {
             get {
                 return ((string)(this["PortalUrl"]));

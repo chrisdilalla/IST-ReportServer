@@ -127,7 +127,7 @@ namespace ReportsWinClient.Forms
                 row.Cells["JobNumber"].Value = o.JobNumber;
                 row.Cells["PartCount"].Value = o.PartCount;
 
-                row.Cells["GetReport"].Value = "Get Report";
+                //row.Cells["GetReport"].Value = "Get Report";
             }
             datagridviewStopEvents.ClearSelection();
         }
@@ -174,7 +174,7 @@ namespace ReportsWinClient.Forms
             string directory = Properties.Settings.Default.TempDirectory;
             if (!Directory.Exists(directory)) Directory.CreateDirectory(directory);
 
-            string path = Path.Combine(directory, $"{$"ReportName_{DateTime.Now.ToFileTime()}"}.pdf"); 
+            string path = Path.Combine(directory, $"{summ.FurnaceLine}F-{DateTime.Now.ToFileTime()}.pdf"); 
 
             File.WriteAllBytes(path, summ.ReportBytes);
             Process.Start(path);

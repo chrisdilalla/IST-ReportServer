@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Library.Models.ReportModels;
@@ -18,7 +19,7 @@ namespace PdfReports.Code.Reports
         {
             Config.Portrait = true;
             Config.HeaderText = $"Induction Downtime Report Furnace #{Config.PcSumm.FurnaceLine}";
-            Config.SubheaderText = $"From {Config.PcSumm.RequestStartDate} to {Config.PcSumm.RequestEndDate}";
+            Config.SubheaderText = $"From {Config.PcSumm.RequestStartDate} to {Config.PcSumm.RequestEndDate}{Environment.NewLine}Job Number: {Config.PcSumm.RequestJobNumber}";
             Config.ShowLogo = true;
             Config.TopSeparatorLine = true;
             Config.BottomSeparatorLine = true;

@@ -17,6 +17,7 @@ namespace Library.Models.ReportModels
 
         public DateTime RequestStartDate { get; set; }
         public DateTime RequestEndDate { get; set; }
+        public string RequestJobNumber { get; set; }
         public int FurnaceLine { get; set; }
         public DateTime? FirstDate { get; set; }
         public DateTime? LastDate { get; set; }

@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+*.deploy
+ReportsWinClient/1-Publish/IST Report Client Install/Application Files/IST Reports Client_1_1_1_2/IST Reports Client.application
+*.manifest
+ReportsWinClient/1-Publish/IST Report Client Install/IST Reports Client.application
+*.exe

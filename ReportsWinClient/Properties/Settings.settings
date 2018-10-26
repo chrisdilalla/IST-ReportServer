@@ -6,7 +6,7 @@
       <Value Profile="(Default)">C:\IstReports\Temp</Value>
     </Setting>
     <Setting Name="PortalUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://localhost:35342/api/v1/</Value>
+      <Value Profile="(Default)">http://10.1.1.165/api/v1/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -39,6 +39,8 @@ namespace WebservicePortal.DomainLogic
             InductionDowntimeProcessCodeSummary summary = new InductionDowntimeProcessCodeSummary();
             summary.RequestStartDate = startdate;
             summary.RequestEndDate = enddate;
+            summary.RequestJobNumber = "ALL";
+            if (jobNumber != null) summary.RequestJobNumber = jobNumber.ToString();
             summary.FurnaceLine = lineNumber ?? 0;
             summary.DowntimeEvents = _inductionDowntimeRepository.GetDownTimeEvents(
                 startdate, enddate, lineNumber, jobNumber, processCode).OrderBy(x => x.SmallDateTime).ToList();

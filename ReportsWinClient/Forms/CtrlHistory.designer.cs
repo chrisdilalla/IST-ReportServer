@@ -46,6 +46,7 @@ namespace ReportsWinClient.Forms
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.datagridviewStopEvents = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
             this.SmallDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProcessCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoursDown = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +55,6 @@ namespace ReportsWinClient.Forms
             this.JobNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GetReport = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridviewStopEvents)).BeginInit();
@@ -142,7 +142,7 @@ namespace ReportsWinClient.Forms
             this.btnRefineSearch.Name = "btnRefineSearch";
             this.btnRefineSearch.Size = new System.Drawing.Size(101, 32);
             this.btnRefineSearch.TabIndex = 75;
-            this.btnRefineSearch.Text = "Search Events";
+            this.btnRefineSearch.Text = "Get Report";
             this.btnRefineSearch.UseVisualStyleBackColor = true;
             this.btnRefineSearch.Click += new System.EventHandler(this.btnRefineSearch_Click);
             // 
@@ -242,6 +242,17 @@ namespace ReportsWinClient.Forms
             this.datagridviewStopEvents.TabIndex = 64;
             this.datagridviewStopEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridviewOrders_CellContentClick);
             // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.Control;
+            this.label11.Font = new System.Drawing.Font("Arial", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label11.Location = new System.Drawing.Point(12, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(634, 36);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Stop Events";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SmallDateTime
             // 
             this.SmallDateTime.HeaderText = "Event Date";
@@ -290,17 +301,7 @@ namespace ReportsWinClient.Forms
             this.GetReport.Name = "GetReport";
             this.GetReport.ReadOnly = true;
             this.GetReport.Text = "";
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.SystemColors.Control;
-            this.label11.Font = new System.Drawing.Font("Arial", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label11.Location = new System.Drawing.Point(12, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(634, 36);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Stop Events";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GetReport.Visible = false;
             // 
             // CtrlHistory
             // 
